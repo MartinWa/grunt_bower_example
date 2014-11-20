@@ -1,20 +1,19 @@
 'use strict';
 
-/**
- * @ngdoc overview
- * @name gruntBowerExampleApp
- * @description
- * # gruntBowerExampleApp
- *
- * Main module of the application.
- */
 angular
   .module('gruntBowerExampleApp', [
     'ngAnimate',
+    'ngCookies',
     'ngResource',
     'ngRoute',
-    'ngSanitize'
+    'ngSanitize',
+    'ngTouch',
+    'ui.sortable',
+    'LocalStorageModule'
   ])
+  .config(['localStorageServiceProvider', function(localStorageServiceProvider){
+    localStorageServiceProvider.setPrefix('ls');
+  }])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
